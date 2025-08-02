@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Pixel Color</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            cursor: crosshair; /* Indicate it's clickable */
+            margin-bottom: 10px;
+        }
+        #colorInfo {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click on the image to get pixel color</h1>
+
+    <canvas id="myCanvas"></canvas>
+
+    <div id="colorInfo">
+        Click a pixel to see its RGB and Hex color.
+    </div>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        const colorInfoDiv = document.getElementById('colorInfo');
+        const imageUrl = 'src.jpg'; // Path to your uploaded image
+
+        const img = new Image();
+        img.crossOrigin = 'Anonymous'; // Important for CORS if image is from a different domain
+        img.src = imageUrl;
+
+        img.onload = () => {
+            // Set canvas dimensions to match the image
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            // Draw the image onto the canvas
+            ctx.drawImage(img, 0, 0);
+
+            canvas.addEventListener('click', (event) => {
+                // Get the click coordinates relative to the canvas
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                // Get the ImageData for a 1x1 pixel at the clicked location
+                // The getImageData() method returns an ImageData object representing the underlying pixel data
+                // for the specified rectangle of the canvas.
+                // Syntax: ctx.getImageData(sx, sy, sw, sh)
+                // sx: The x-coordinate of the top-left corner of the rectangle from which to get the ImageData.
+                // sy: The y-coordinate of the top-left corner of the rectangle from which to get the ImageData.
+                // sw: The width of the rectangle from which to get the ImageData.
+                // sh: The height of the rectangle from which to get the ImageData.
+                const imageData = ctx.getImageData(x, y, 1, 1);
+
+                // The data property of the ImageData object is a Uint8ClampedArray
+                // containing the pixel data in the RGBA format, with values from 0 to 255.
+                // For a 1x1 pixel, it will be [R, G, B, A]
+                const [r, g, b, a] = imageData.data;
+
+                // Convert RGB to Hexadecimal for display
+                const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+                    const hex = x.toString(16);
+                    return hex.length === 1 ? '0' + hex : hex;
+                }).join('');
+
+                const hexColor = rgbToHex(r, g, b);
+
+                colorInfoDiv.innerHTML = `
+                    Pixel at (${Math.floor(x)}, ${Math.floor(y)}):<br>
+                    RGB: (${r}, ${g}, ${b})<br>
+                    Hex: ${hexColor}<br>
+                    Alpha: ${a}
+                `;
+            });
+        };
+
+        img.onerror = () => {
+            colorInfoDiv.innerHTML = `Error loading image: ${imageUrl}. Please ensure the image path is correct and it's served from the same origin, or configure CORS.`;
+            console.error('Error loading image. Check path and CORS settings.');
+        };
+    </script>
+</body>
+</html>

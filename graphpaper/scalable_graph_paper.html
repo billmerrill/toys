@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalable Graph Paper</title>
+    <style>
+        :root {
+            --grid-size: 1.2em;
+            --line-color: #e0e0e0;
+            --heavy-line-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: var(--grid-size);
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: var(--grid-size);
+            background-color: white;
+            /* Create the graph paper pattern using CSS gradients */
+            background-image: 
+                /* Vertical lines */
+                linear-gradient(to right, var(--line-color) 1px, transparent 1px),
+                /* Horizontal lines */
+                linear-gradient(to bottom, var(--line-color) 1px, transparent 1px),
+                /* Heavy vertical lines every 5 units */
+                linear-gradient(to right, var(--heavy-line-color) 1px, transparent 1px),
+                /* Heavy horizontal lines every 5 units */
+                linear-gradient(to bottom, var(--heavy-line-color) 1px, transparent 1px);
+            background-size: 
+                var(--grid-size) var(--grid-size),
+                var(--grid-size) var(--grid-size),
+                calc(var(--grid-size) * 5) calc(var(--grid-size) * 5),
+                calc(var(--grid-size) * 5) calc(var(--grid-size) * 5);
+            min-height: 100vh;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, var(--grid-size));
+            grid-template-rows: repeat(auto-fit, var(--grid-size));
+            gap: 0;
+            width: 100%;
+        }
+
+        .grid-text {
+            grid-column: span 1;
+            grid-row: span 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0;
+            margin: 0;
+            height: var(--grid-size);
+            font-size: 1em;
+            line-height: var(--grid-size);
+        }
+
+        /* Alternative approach using positioned elements */
+        .positioned-text {
+            position: absolute;
+            font-size: 1em;
+            line-height: var(--grid-size);
+            height: var(--grid-size);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Example content positioned on specific grid coordinates */
+        .text-1-1 { 
+            left: calc(var(--grid-size) * 1); 
+            top: calc(var(--grid-size) * 1); 
+        }
+        
+        .text-3-2 { 
+            left: calc(var(--grid-size) * 3); 
+            top: calc(var(--grid-size) * 2); 
+        }
+        
+        .text-1-4 { 
+            left: calc(var(--grid-size) * 1); 
+            top: calc(var(--grid-size) * 4); 
+        }
+
+        .text-5-6 { 
+            left: calc(var(--grid-size) * 5); 
+            top: calc(var(--grid-size) * 6); 
+        }
+
+        /* Content area with proper grid alignment */
+        .content-area {
+            position: relative;
+            margin-top: calc(var(--grid-size) * 2);
+            padding: 0;
+        }
+
+        /* Grid-aligned paragraphs */
+        .grid-paragraph {
+            margin: 0;
+            padding: 0;
+            line-height: var(--grid-size);
+            margin-bottom: var(--grid-size);
+        }
+
+        /* Different font sizes that maintain grid alignment */
+        .large-text {
+            font-size: 1.5em;
+            line-height: calc(var(--grid-size) * 2);
+            height: calc(var(--grid-size) * 2);
+        }
+
+        .small-text {
+            font-size: 0.8em;
+            line-height: var(--grid-size);
+        }
+
+        /* Demonstration of various grid alignments */
+        .demo-section {
+            margin-top: calc(var(--grid-size) * 3);
+            border-top: 2px solid var(--heavy-line-color);
+            padding-top: var(--grid-size);
+        }
+
+        /* Table that aligns to grid */
+        .grid-table {
+            border-collapse: collapse;
+            margin: calc(var(--grid-size) * 2) 0;
+        }
+
+        .grid-table td, .grid-table th {
+            border: 1px solid var(--line-color);
+            padding: 0 calc(var(--grid-size) * 0.5);
+            height: var(--grid-size);
+            line-height: var(--grid-size);
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .grid-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="grid-paragraph large-text">Scalable Graph Paper</h1>
+    
+    <div class="content-area">
+        <!-- Positioned text examples -->
+        <div class="positioned-text text-1-1">A</div>
+        <div class="positioned-text text-3-2">Grid</div>
+        <div class="positioned-text text-1-4">Aligned</div>
+        <div class="positioned-text text-5-6">Text</div>
+        
+        <!-- Paragraph content that flows with the grid -->
+        <div style="margin-top: calc(var(--grid-size) * 8);">
+            <p class="grid-paragraph">
+                This text is aligned to the graph paper grid. As you change your browser's 
+                font size (Ctrl/Cmd +/-), both the grid and text will scale proportionally.
+            </p>
+            
+            <p class="grid-paragraph">
+                The grid is created using CSS gradients and background patterns, while the 
+                text alignment uses em-based measurements that scale with font size.
+            </p>
+            
+            <p class="grid-paragraph large-text">
+                This is larger text that spans two grid lines vertically.
+            </p>
+            
+            <p class="grid-paragraph small-text">
+                This is smaller text that still aligns to the grid baseline.
+            </p>
+        </div>
+        
+        <div class="demo-section">
+            <h2 class="grid-paragraph large-text">Grid-Aligned Table</h2>
+            
+            <table class="grid-table">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data A1</td>
+                        <td>Data B1</td>
+                        <td>Data C1</td>
+                    </tr>
+                    <tr>
+                        <td>Data A2</td>
+                        <td>Data B2</td>
+                        <td>Data C2</td>
+                    </tr>
+                    <tr>
+                        <td>Data A3</td>
+                        <td>Data B3</td>
+                        <td>Data C3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="demo-section">
+            <h2 class="grid-paragraph large-text">Instructions</h2>
+            <p class="grid-paragraph">
+                • Use Ctrl/Cmd + or - to change font size and see the grid scale
+            </p>
+            <p class="grid-paragraph">
+                • The grid pattern uses CSS gradients with em-based sizing
+            </p>
+            <p class="grid-paragraph">
+                • All text elements use line-height and positioning based on --grid-size
+            </p>
+            <p class="grid-paragraph">
+                • Heavy lines appear every 5 grid units for easier reference
+            </p>
+        </div>
+    </div>
+</body>
+</html>
