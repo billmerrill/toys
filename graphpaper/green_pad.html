@@ -79,8 +79,12 @@
                     transparent calc(var(--left-bar) + 2px)),
                 linear-gradient(to right, transparent var(--right-bar),
                     var(--heavy-line-color) calc(var(--right-bar) + 1px), 
-                    transparent calc(var(--right-bar) + 2px));
+                    transparent calc(var(--right-bar) + 2px)),
+                linear-gradient(to bottom, transparent calc(var(--right-margin-width) - 1px),
+                    var(--heavy-line-color) var(--right-margin-width));
+
             background-size: 
+                100% var(--right-margin-width),
                 100% var(--right-margin-width),
                 100% var(--right-margin-width);
 
