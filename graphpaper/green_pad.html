@@ -6,38 +6,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>green pad</title>
     <style>
+        /**
+        gs = grid-size
+        gs = lh to line text to lines
+        Design goal
+
+        mid-section (ms) = 100% - 8gs
+        header (height 3gs)
+        5gs | ms/3 gs | ms/3 gs | ms/3 gs | 3 gs
+        body
+        5 gs | ms gs | 3gs
+
+        */
         :root {
-            --grid-size: 1.2em;
-            --line-color: #7A9F86;
+            --grid-size: 1.0lh;
+            /* --line-color: green;
+            --heavy-line-color: darkgreen; */
+            --line-color: #c7f6d6;
             --heavy-line-color: #7A9F86;
+            --left-margin-width: calc(var(--grid-size) * 5);
+            --right-margin-width: calc(var(--grid-size) * 3);
+            --midsection: calc(100vw - calc(var(--left-margin-width) + var(--right-margin-width)));
+            --ms-third: calc(var(--midsection) / 3.0);
         }
 
-         * {
+        * {
             box-sizing: border-box;
         }
 
         body {
             font-family: monospace;
-            padding: var(--grid-size);
-            font-size: 16px;
             background-color: #EBF3DE;
+            margin: 0px
+        }
+
+          /*
+        --cell: 1lh
+        --left-m: 5lh
+        --right-m: 3lh
+        --header: 3lh
+        */
+
+        .side-lines {
+            --right-m:calc(100vw - var(--right-margin-width));
+
+            height: 40px;
+            margin: 0px;
+            background-image: 
+                linear-gradient(to right, transparent var(--left-margin-width),
+                    var(--heavy-line-color) calc(var(--left-margin-width) + 1px), 
+                    transparent calc(var(--left-margin-width) + 2px)),
+                linear-gradient(to right, transparent var(--right-m), 
+                    var(--heavy-line-color )calc(var(--right-m) + 1px), 
+                    transparent calc(var(--right-m) + 2px));
+            background-size:
+                100% var(--right-margin-width),
+                100% var(--right-margin-width);
+
+        }
+
+        header {
+            height: var(--right-margin-width);
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            
+            --left-bar: calc(var(--left-margin-width) + var(--ms-third));
+            --right-bar: calc(calc(100vw - var(--left-margin-width)) - var(--ms-third));
+            background-image: 
+                linear-gradient(to right, transparent var(--left-bar),
+                    var(--heavy-line-color) calc(var(--left-bar) + 1px), 
+                    transparent calc(var(--left-bar) + 2px)),
+                linear-gradient(to right, transparent var(--right-bar),
+                    var(--heavy-line-color) calc(var(--right-bar) + 1px), 
+                    transparent calc(var(--right-bar) + 2px));
+            background-size: 
+                100% var(--right-margin-width),
+                100% var(--right-margin-width);
+
+            /* border: 1px solid red; */
+        }
+
+        h1 {
+            margin: 0px;
+        }
+
+        main {
+            border: 0px;
+            margin-left: var(--left-margin-width);
+            margin-right: var(--right-margin-width);
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 0px;
+
             background-size: var(--grid-size);
             background-image:
                 linear-gradient(to right, var(--line-color) 1px, transparent 1px),
                 linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+                /* side bars */
+                linear-gradient(to right, transparent 40px, darkgreen 41px, transparent 42px),
+                linear-gradient(to right, transparent calc(100vw - 40px), darkgreen calc(100vw - 39px), transparent calc(100vw - 38px));
+
             background-size: 
                 var(--grid-size) var(--grid-size),
                 var(--grid-size) var(--grid-size),
-                calc(var(--grid-size) * 5) calc(var(--grid-size) * 5),
-                calc(var(--grid-size) * 5) calc(var(--grid-size) * 5);
-            
-
+                100% 100%,
+                100% 100%;
         }
+
+
     </style>
 </head>
 
-<body>
-    <p><a href="https://social.lol/@billmerrill/114960584707420801">Why?</a></a></p>
+<body class="side-lines">
+    <header>hi</header>
+    <main>    
+        <h1>hache uno</h1>
+        <p><a href="https://social.lol/@billmerrill/114960584707420801">Why?</a></a></p>
+
+    <p>    kinch<br>vertigo<br>
+        gango
+    </p>
+    <p>
+        a different girl
+    </p>           There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+        <p>
+            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+
+        </p>
+        <p>
+            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+        </p>
+
+        <p>
+            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+
+        </p>
+
+        <h1>a e o u n m </h1>
+
+        <p>
+            and now it's just my noise
+        </p>
+        Now my cats are having a good time, tearing up the carpet
+
+        <h3> listening to matmos because no one else can hear it</h3>
+
+        <h2> their loss </h2>
+
+        <p>More aeroplanes.
+        </p>
+    </main>
+
 
 </body>
 <html>
