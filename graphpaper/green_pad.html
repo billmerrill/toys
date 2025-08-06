@@ -46,7 +46,7 @@
 
         body {
             background-color: #EBF3DE;
-            margin: 0px
+            margin: 0px;
         }
 
 
@@ -95,6 +95,7 @@
         }
 
         main {
+            min-height: calc(100vh - calc(var(--right-margin-width) * 2));
             border: 0px;
             margin-left: var(--left-margin-width);
             margin-right: var(--right-margin-width);
@@ -120,8 +121,8 @@
         footer {
             /* a full height footer, placed at the bottom of the page, and the page extended */
             position: relative;
-            height: 100px;
-            background-color: var(--heavy-line-color);
+            height: var(--right-margin-width);
+            border-top: 1px solid var(--heavy-line-color);
         }
 
         /* elements */
@@ -129,8 +130,9 @@
             margin: 0px;
         }
 
-
-
+        p {
+            margin-bottom: 1lh;
+        }
     </style>
 </head>
 
@@ -142,41 +144,83 @@
         <h1>hache uno</h1>
         <p><a href="https://social.lol/@billmerrill/114960584707420801">Why?</a></a></p>
 
-    <p>    ich<br>ni<br>
-        san
-    </p>
-    <p>
-        shi
-    </p>           There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
-        <p>
-            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+        <p><strong>Q:</strong> What is Ohm's Law and how is it used in electrical circuits?<br>
+        <strong>A:</strong> Ohm's Law states that the current (I) through a conductor between two points is directly proportional to the voltage (V) across the two points and inversely proportional to the resistance (R). It is expressed as V = IR. This law is used to calculate the voltage, current, or resistance in a circuit when the other two quantities are known.</p>
 
-        </p>
-        <p>
-            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
-        </p>
+        <p><strong>Q:</strong> What is the difference between series and parallel circuits?<br>
+        <strong>A:</strong> In a series circuit, components are connected end-to-end so that the same current flows through each component. In a parallel circuit, components are connected across the same two points, so the voltage across each component is the same, but the current can vary. Series circuits have one path for current, while parallel circuits have multiple paths.</p>
 
-        <p>
-            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
-            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
-            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
-            There is a dog barking, actually I think there are two, I wonder if a coyote is sneaking in, or a person?
+        <p><strong>Q:</strong> How does a capacitor store energy in an electrical system?<br>
+        <strong>A:</strong> A capacitor stores energy in the form of an electric field between its plates. When a voltage is applied, charge accumulates on the plates, creating a potential difference. The energy stored is given by the formula E = ½CV², where C is the capacitance and V is the voltage.</p>
 
-        </p>
+        <p><strong>Q:</strong> What is the function of a transformer in an electrical system?<br>
+        <strong>A:</strong> A transformer changes the voltage level in an AC electrical system. It consists of two coils (primary and secondary) wound around a core. By electromagnetic induction, it can step up (increase) or step down (decrease) the voltage depending on the ratio of turns in the coils.</p>
 
-        <h1>a e o u n m </h1>
+        <p><strong>Q:</strong> Why are circuit breakers important in electrical systems?<br>
+        <strong>A:</strong> Circuit breakers protect electrical circuits from damage caused by overload or short circuit. They automatically interrupt the flow of electricity when the current exceeds a safe level, preventing fires and equipment damage.</p>
 
-        <p>
-            and now it's just my noise
-        </p>
-        Now my cats are having a good time, tearing up the carpet
+        <p><strong>Q:</strong> What is electrical power and how is it calculated?<br>
+        <strong>A:</strong> Electrical power is the rate at which electrical energy is transferred by an electric circuit. It is calculated using the formula P = VI, where P is power in watts, V is voltage in volts, and I is current in amperes.</p>
 
-        <h3> listening to matmos because no one else can hear it</h3>
+        <p><strong>Q:</strong> What is the purpose of a resistor in a circuit?<br>
+        <strong>A:</strong> A resistor limits or controls the flow of electric current in a circuit. It can also divide voltage and protect sensitive components from excessive current.</p>
 
-        <h2> their loss </h2>
+        <p><strong>Q:</strong> What is alternating current (AC) and how does it differ from direct current (DC)?<br>
+        <strong>A:</strong> Alternating current (AC) changes direction periodically, while direct current (DC) flows in one direction only. AC is commonly used for power distribution because it can be easily transformed to different voltages.</p>
 
-        <p>More aeroplanes.
-        </p>
+        <p><strong>Q:</strong> What is a diode and what is its function in a circuit?<br>
+        <strong>A:</strong> A diode is a semiconductor device that allows current to flow in only one direction. It is used for rectification, converting AC to DC, and protecting circuits from reverse voltage.</p>
+
+        <p><strong>Q:</strong> How does an inductor work in an electrical circuit?<br>
+        <strong>A:</strong> An inductor stores energy in a magnetic field when electrical current flows through it. It resists changes in current and is used in filters, transformers, and energy storage applications.</p>
+
+        <p><strong>Q:</strong> What is Kirchhoff's Voltage Law (KVL)?<br>
+        <strong>A:</strong> Kirchhoff's Voltage Law states that the sum of all voltages around a closed loop in a circuit is zero. This helps analyze complex circuits by relating voltages and components in a loop.</p>
+
+        <p><strong>Q:</strong> What is Kirchhoff's Current Law (KCL)?<br>
+        <strong>A:</strong> Kirchhoff's Current Law states that the total current entering a junction equals the total current leaving the junction. This law is used to analyze current flow in complex circuits.</p>
+
+        <p><strong>Q:</strong> What is the role of a fuse in an electrical system?<br>
+        <strong>A:</strong> A fuse is a safety device that protects circuits from overcurrent. It contains a thin wire that melts and breaks the circuit if the current exceeds a safe level.</p>
+
+        <p><strong>Q:</strong> What is electrical grounding and why is it important?<br>
+        <strong>A:</strong> Electrical grounding connects parts of an electrical system to the earth, providing a safe path for fault currents. It helps prevent electric shock and protects equipment from damage.</p>
+
+        <p><strong>Q:</strong> What is the difference between conductors and insulators?<br>
+        <strong>A:</strong> Conductors allow electric current to flow easily due to their low resistance (e.g., copper, aluminum), while insulators resist current flow and are used to protect and isolate electrical components (e.g., rubber, glass).</p>
+
+        <p><strong>Q:</strong> What is a relay and how is it used in electrical circuits?<br>
+        <strong>A:</strong> A relay is an electrically operated switch that uses an electromagnet to open or close contacts. It allows a low-power signal to control a high-power circuit, providing isolation and automation.</p>
+                <p><strong>Q:</strong> What is a potentiometer and how is it used in circuits?<br>
+        <strong>A:</strong> A potentiometer is a variable resistor that allows you to adjust the resistance manually. It is commonly used to control voltage or current, such as in volume controls or light dimmers.</p>
+
+        <p><strong>Q:</strong> What is the difference between a conductor and a semiconductor?<br>
+        <strong>A:</strong> Conductors have high electrical conductivity and allow current to flow easily, while semiconductors have conductivity between that of conductors and insulators. Semiconductors are used in electronic devices like diodes and transistors.</p>
+
+        <p><strong>Q:</strong> What is the function of a switch in an electrical circuit?<br>
+        <strong>A:</strong> A switch is a device that opens or closes a circuit, allowing or stopping the flow of electricity. It is used to control the operation of electrical devices.</p>
+
+        <p><strong>Q:</strong> What is a short circuit and why is it dangerous?<br>
+        <strong>A:</strong> A short circuit occurs when electricity flows along an unintended path with little or no resistance, often bypassing the load. It can cause excessive current, overheating, and fires.</p>
+
+        <p><strong>Q:</strong> What is the role of a circuit diagram?<br>
+        <strong>A:</strong> A circuit diagram is a graphical representation of an electrical circuit, showing the connections and components. It helps in designing, building, and troubleshooting circuits.</p>
+
+        <p><strong>Q:</strong> What is a multimeter and what can it measure?<br>
+        <strong>A:</strong> A multimeter is a tool used to measure voltage, current, and resistance in electrical circuits. Some multimeters can also test continuity and measure capacitance.</p>
+
+        <p><strong>Q:</strong> What is the difference between a cell and a battery?<br>
+        <strong>A:</strong> A cell is a single electrochemical unit that produces voltage and current. A battery consists of two or more cells connected together to provide higher voltage or capacity.</p>
+
+        <p><strong>Q:</strong> What is the function of a ground fault circuit interrupter (GFCI)?<br>
+        <strong>A:</strong> A GFCI is a safety device that quickly disconnects power when it detects a difference between incoming and outgoing current, protecting against electric shock from ground faults.</p>
+
+        <p><strong>Q:</strong> What is the principle of electromagnetic induction?<br>
+        <strong>A:</strong> Electromagnetic induction is the process by which a changing magnetic field induces an electric current in a conductor. It is the basis for generators and transformers.</p>
+
+        <p><strong>Q:</strong> What is the difference between active and passive components?<br>
+        <strong>A:</strong> Active components, like transistors and diodes, can control current flow and require an external power source. Passive components, like resistors, capacitors, and inductors, do not require power and only respond to electrical signals.</p>
+
     </main>
     <footer>
         Feet
