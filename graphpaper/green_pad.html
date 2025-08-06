@@ -7,19 +7,24 @@
     <title>green pad</title>
     <style>
         /**
-        gs = grid-size
-        gs = lh to line text to lines
-        Design goal
+        Design
+        sized in "grid size" or gs.  
+        gs will equal a line-height to make text track the graph paper
 
-        mid-section (ms) = 100% - 8gs
-        header (height 3gs)
-        5gs | ms/3 gs | ms/3 gs | ms/3 gs | 3 gs
-        body
-        5 gs | ms gs | 3gs
-
+        - Header, 5 cells, height 3gs
+            - fixed left margin: 5gs
+            - flex body cells: 1/3 of body, x3
+            - fixed right margin: 3gs
+        - Body: height?
+            -fixed left margin: 5gs
+            -flex body
+                - graph apper grid, 1x1 gs
+            - fixed right margin: 3gs
+        - Footer?
         */
+
         :root {
-            font-family: monospace;
+            /* font-family: monospace; */
             --grid-size: 1.0lh;
             /* --line-color: green;
             --heavy-line-color: darkgreen; */
@@ -42,13 +47,8 @@
             margin: 0px
         }
 
-          /*
-        --cell: 1lh
-        --left-m: 5lh
-        --right-m: 3lh
-        --header: 3lh
-        */
 
+        /* attached to body, left and right margin bars */
         .side-lines {
             --right-m:calc(100vw - var(--right-margin-width));
 
@@ -70,9 +70,10 @@
         header {
             height: var(--right-margin-width);
             margin: 0px;
-            padding: 0px;
+            padding: 0px 0.5 rem;
             border: 0px;
             
+            /* cell bars */
             --left-bar: calc(var(--left-margin-width) + var(--ms-third));
             --right-bar: calc(calc(100vw - var(--left-margin-width)) - var(--ms-third));
             background-image: 
@@ -84,17 +85,11 @@
                     transparent calc(var(--right-bar) + 2px)),
                 linear-gradient(to bottom, transparent calc(var(--right-margin-width) - 1px),
                     var(--heavy-line-color) var(--right-margin-width));
-
             background-size: 
                 100% var(--right-margin-width),
                 100% var(--right-margin-width),
                 100% var(--right-margin-width);
 
-            /* border: 1px solid red; */
-        }
-
-        h1 {
-            margin: 0px;
         }
 
         main {
@@ -103,8 +98,9 @@
             margin-right: var(--right-margin-width);
             margin-top: 0px;
             margin-bottom: 0px;
-            padding: 0px;
+            padding: 0px 0.5rem;
 
+            /* graph paper grid */
             background-size: var(--grid-size);
             background-image:
                 linear-gradient(to right, var(--line-color) 1px, transparent 1px),
@@ -112,7 +108,6 @@
                 /* side bars */
                 linear-gradient(to right, transparent 40px, darkgreen 41px, transparent 42px),
                 linear-gradient(to right, transparent calc(100vw - 40px), darkgreen calc(100vw - 39px), transparent calc(100vw - 38px));
-
             background-size: 
                 var(--grid-size) var(--grid-size),
                 var(--grid-size) var(--grid-size),
@@ -120,13 +115,19 @@
                 100% 100%;
         }
 
+        /* elements */
+        h1 {
+            margin: 0px;
+        }
+
+
 
     </style>
 </head>
 
 <body class="side-lines">
     <header>
-        <center>chrome is being a jerk</center>
+        <center>I could make a nice class for these cells</center>
     </header>
     <main>    
         <h1>hache uno</h1>
