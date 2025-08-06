@@ -73,7 +73,7 @@
         header {
             height: var(--right-margin-width);
             margin: 0px;
-            padding: 0px 0.5 rem;
+            padding: 0rem calc(var(--right-margin-width) + 0.5rem) 0rem calc(var(--left-margin-width) + 0.5rem);
             border: 0px;
             
             /* cell bars */
@@ -116,10 +116,10 @@
         }
 
         footer {
-            /* a full height footer, placed at the bottom of the page, and the page extended */
-            position: relative;
             height: var(--right-margin-width);
+            padding: 0rem calc(var(--right-margin-width) + 0.5rem) 0rem calc(var(--left-margin-width) + 0.5rem);
         }
+
 
         /* elements */
         h1 {
@@ -134,7 +134,7 @@
 
 <body class="side-lines">
     <header>
-        <center>I could make a nice class for these cells</center>
+        Don't forget to put your name, date, the class, and the assignment, or you will not get credit for your assignment.  No, seriously.
     </header>
     <main>    
         <h1>hache uno</h1>
@@ -221,7 +221,7 @@
 
     </main>
     <footer>
-        Feet
+        This footer is brought to you by the letter F. F is pretty handy, it starts a function, it might indicate a temperature in an inferior way, and it's a quick swear.
     </footer>
 
 
