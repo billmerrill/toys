@@ -32,6 +32,7 @@
             --heavy-line-color: darkgreen; */
             --line-color: #c7f6d6;
             --heavy-line-color: #7A9F86;
+            --paper-color: #EBF3DE;
             --left-margin-width: calc(var(--grid-size) * 5);
             --right-margin-width: calc(var(--grid-size) * 2.5);
             --midsection: calc(100vw - calc(var(--left-margin-width) + var(--right-margin-width)));
@@ -45,7 +46,7 @@
         }
 
         body {
-            background-color: #EBF3DE;
+            background-color: var(--paper-color); 
             margin: 0px;
         }
 
@@ -102,27 +103,22 @@
             margin-top: 0px;
             margin-bottom: 0px;
             padding: 0px 0.5rem;
+            border-bottom: 1px solid var(--line-color); 
 
             /* graph paper grid */
             background-size: var(--grid-size);
             background-image:
                 linear-gradient(to right, var(--line-color) 1px, transparent 1px),
                 linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
-                /* side bars */
-                linear-gradient(to right, transparent 40px, darkgreen 41px, transparent 42px),
-                linear-gradient(to right, transparent calc(100vw - 40px), darkgreen calc(100vw - 39px), transparent calc(100vw - 38px));
             background-size: 
                 var(--grid-size) var(--grid-size),
-                var(--grid-size) var(--grid-size),
-                100% 100%,
-                100% 100%;
+                var(--grid-size) var(--grid-size);
         }
 
         footer {
             /* a full height footer, placed at the bottom of the page, and the page extended */
             position: relative;
             height: var(--right-margin-width);
-            border-top: 1px solid var(--heavy-line-color);
         }
 
         /* elements */
@@ -155,7 +151,7 @@
 
         <p><strong>Q:</strong> What is the function of a transformer in an electrical system?<br>
         <strong>A:</strong> A transformer changes the voltage level in an AC electrical system. It consists of two coils (primary and secondary) wound around a core. By electromagnetic induction, it can step up (increase) or step down (decrease) the voltage depending on the ratio of turns in the coils.</p>
-
+<!--
         <p><strong>Q:</strong> Why are circuit breakers important in electrical systems?<br>
         <strong>A:</strong> Circuit breakers protect electrical circuits from damage caused by overload or short circuit. They automatically interrupt the flow of electricity when the current exceeds a safe level, preventing fires and equipment damage.</p>
 
@@ -220,6 +216,8 @@
 
         <p><strong>Q:</strong> What is the difference between active and passive components?<br>
         <strong>A:</strong> Active components, like transistors and diodes, can control current flow and require an external power source. Passive components, like resistors, capacitors, and inductors, do not require power and only respond to electrical signals.</p>
+    
+        -->
 
     </main>
     <footer>
